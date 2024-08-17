@@ -8,8 +8,8 @@ from twilio.rest import Client
 import pendulum
 
 #Set up twilio account via API
-account_sid = 'ACd59de4b7ea746ef5cbf1e68d7087ef19'
-auth_token = '87c4c5069b3a671e72e462b48689d1d3'
+account_sid = os.environ['TWILIO_ACC_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
 client = Client(account_sid, auth_token)
 
