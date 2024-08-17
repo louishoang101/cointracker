@@ -24,5 +24,9 @@ jobs:
             
         - name: execute py script # run main.py
           env:
-            SOME_SECRET: ${{ secrets.SOME_SECRET }}
-          run: python main.py
+            GECKO_KEY: ${{ secrets.GECKO_KEY }}
+            TWILIO_ACC_SID: ${{ secrets.TWILIO_ACC_SID }}
+            TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          run: python CoinTracker.py
+               python  GeckoAPI.py
+               

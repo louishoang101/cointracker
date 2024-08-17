@@ -4,22 +4,22 @@ import json
 import pendulum
 import time
 from datetime import datetime
-
+import os
 from twilio.rest import Client
 
 #Set up twilio account via API
-account_sid = 'ACd59de4b7ea746ef5cbf1e68d7087ef19'
-auth_token = '87c4c5069b3a671e72e462b48689d1d3'
+account_sid = os.environ['TWILIO_ACC_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
 client = Client(account_sid, auth_token)
 
 from_whatsapp_number = 'whatsapp:+14155238886'
 to_whatsapp_number = 'whatsapp:+61431515817'
 
-headers = {
-"accept": "application/json",
-"x-cg-demo-api-key": "CG-2XuLUW2Yg2tQhe1hYogFg3mY"
-}
+headers = f"{
+'accept': 'application/json',
+'x-cg-demo-api-key': {os.environ['GECKO_KEY']}
+}"
 url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&price_change_percentage=1h"
 
 response = requests.get(url, headers=headers)
