@@ -4,9 +4,10 @@ import os
 from twilio.rest import Client
 
 #Set up twilio account via API
-account_sid = os.environ['TWILIO_ACC_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
-
+account_sid = os.environ["TWILIO_ACC_SID"]
+auth_token = os.environ["TWILIO_AUTH_TOKEN"]
+print(account_sid)
+print(auth_token)
 client = Client(account_sid, auth_token)
 
 from_whatsapp_number = 'whatsapp:+14155238886'

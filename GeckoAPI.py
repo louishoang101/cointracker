@@ -4,8 +4,8 @@ import os
 from twilio.rest import Client
 
 #Set up twilio account via API
-account_sid = os.environ['TWILIO_ACC_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
+account_sid = os.environ["TWILIO_ACC_SID"]
+auth_token = os.environ["TWILIO_AUTH_TOKEN"]
 
 client = Client(account_sid, auth_token)
 
