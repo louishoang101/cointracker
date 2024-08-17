@@ -3,5 +3,4 @@ requests
 selenium
 twilio
 pywhatkit
-pendulum
 time

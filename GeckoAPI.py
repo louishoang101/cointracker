@@ -1,7 +1,6 @@
 
 import requests
 import json 
-import pendulum
 import time
 from datetime import datetime
 import os

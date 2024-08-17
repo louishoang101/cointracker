@@ -4,7 +4,6 @@ import time,datetime
 from datetime import datetime
 import os
 from twilio.rest import Client
-import pendulum
 
 #Set up twilio account via API
 account_sid = os.environ['TWILIO_ACC_SID']
