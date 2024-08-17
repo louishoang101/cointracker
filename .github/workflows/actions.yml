@@ -1,4 +1,4 @@
-name: run GeckoAPI.py
+name: run GAF.py
 
 on: 
     schedule:
