@@ -12,10 +12,10 @@ client = Client(account_sid, auth_token)
 from_whatsapp_number = 'whatsapp:+14155238886'
 to_whatsapp_number = 'whatsapp:+61431515817'
 
-headers = f"{
+headers = {
 'accept': 'application/json',
-'x-cg-demo-api-key': {os.environ['GECKO_KEY']}
-}"
+'x-cg-demo-api-key': os.environ['GECKO_KEY']
+}
 url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&price_change_percentage=1h"
 
 response = requests.get(url, headers=headers)
