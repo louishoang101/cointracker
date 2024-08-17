@@ -2,7 +2,7 @@ name: run GeckoAPI.py
 
 on: 
     schedule:
-        - cron: '0 12 * * *'
+        - cron: '*/30 * * * *'
 
 jobs:
     build:
@@ -29,4 +29,3 @@ jobs:
             TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           run: python CoinTracker.py
                python  GeckoAPI.py
-               
