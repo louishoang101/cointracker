@@ -1,5 +1,4 @@
 import requests, json 
-import pandas as pd
 from bs4 import BeautifulSoup
 import time,datetime
 from datetime import datetime
