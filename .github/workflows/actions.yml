@@ -2,7 +2,7 @@ name: run GAF.py
 
 on: 
     schedule:
-        - cron: '* 12 * * *'
+        - cron: '* 2 * * *'
 
 jobs:
     build:
