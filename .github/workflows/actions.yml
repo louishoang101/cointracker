@@ -28,4 +28,4 @@ jobs:
             TWILIO_ACC_SID: ${{ secrets.TWILIO_ACC_SID }}
             TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           run: python CoinTracker.py
-               python  GeckoAPI.py
+               python GeckoAPI.py
