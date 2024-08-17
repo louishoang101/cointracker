@@ -27,7 +27,7 @@ jobs:
             GECKO_KEY: ${{ secrets.GECKO_KEY }}
             TWILIO_ACC_SID: ${{ secrets.TWILIO_ACC_SID }}
             TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-          run: python CoinTracker.py
+          run: python GeckoAPI.py
         - name: commit files
           run: |
             git config --local user.email "action@github.com"
