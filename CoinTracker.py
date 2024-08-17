@@ -1,7 +1,5 @@
-import requests, json 
+import requests
 from bs4 import BeautifulSoup
-import time,datetime
-from datetime import datetime
 import os
 from twilio.rest import Client
 
