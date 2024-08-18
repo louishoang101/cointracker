@@ -34,7 +34,7 @@ sorted_coins = sorted(filtered_coins, key=lambda x:x["price_change_percentage_1h
 top_coins = sorted_coins[:20]
 list_midcap = []
 for coin in top_coins:
-    list_midcap.append(f'{coin["symbol"].upper()}:{round(coin["current_price"])}:{round(coin["price_change_percentage_1h_in_currency"],2)}:{round(coin["price_change_percentage_24h"],2)}')
+    list_midcap.append(f'{coin["symbol"].upper()}:{round(coin["current_price"],4)}:{round(coin["price_change_percentage_1h_in_currency"],2)}:{round(coin["price_change_percentage_24h"],2)}')
 
 filtered_coins_sc = [coin for coin in coin_list if 20000000 < coin["market_cap"] <= 200000000]
 
@@ -42,7 +42,7 @@ sorted_coins_sc = sorted(filtered_coins_sc, key = lambda x:x["price_change_perce
 top_coins_sc = sorted_coins_sc[:20]
 list_smallcap = []
 for coin in top_coins_sc:
-    list_smallcap.append(f'{coin["symbol"].upper()}:{round(coin["current_price"])}:{round(coin["price_change_percentage_1h_in_currency"],2)}:{round(coin["price_change_percentage_24h"],2)}')
+    list_smallcap.append(f'{coin["symbol"].upper()}:{round(coin["current_price"],4)}:{round(coin["price_change_percentage_1h_in_currency"],2)}:{round(coin["price_change_percentage_24h"],2)}')
 
 #return "Here are the list of top 20 coins (MID-CAP) with most 24h change: \n" + str(list_midcap)+ '\n' + "\nHere are the list of top 20 coins (SMALL-CAP) with most 24h change: \n" + str(list_smallcap)
 client.messages.create(body = formula + "\n\n" + btc + "\n\n" + "Here is the list of top 20 coins (MID-CAP) with most 1h change: \n" + str(list_midcap)+ '\n' + "\nHere is the list of top 20 coins (SMALL-CAP) with most 1h change: \n" + str(list_smallcap),
