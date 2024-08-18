@@ -2,7 +2,7 @@ name: run GeckoAPI.py
 
 on: 
     schedule:
-        - cron: '0 1,4,6,8,10,12,14,16,23 * * *'
+        - cron: '0 */3 * * *'
 
 jobs:
     build:
