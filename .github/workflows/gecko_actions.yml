@@ -27,6 +27,7 @@ jobs:
             GECKO_KEY: ${{ secrets.GECKO_KEY }}
             TWILIO_ACC_SID: ${{ secrets.TWILIO_ACC_SID }}
             TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+            SLACK_TOKEN: ${{ secrets.SLACK_TOKEN}}
           run: python GeckoAPI.py
         - name: commit files
           run: |

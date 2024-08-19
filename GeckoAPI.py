@@ -2,22 +2,14 @@
 import requests
 import os
 from twilio.rest import Client
+from slack_sdk import WebClient
 
-#Set up twilio account via API
-account_sid = os.environ["TWILIO_ACC_SID"]
-auth_token = os.environ["TWILIO_AUTH_TOKEN"]
-
-client = Client(account_sid, auth_token)
-
-from_whatsapp_number = '+14157671736'
-to_whatsapp_number = '+61431515817'
+url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&price_change_percentage=1h"
 
 headers = {
 'accept': 'application/json',
 'x-cg-demo-api-key': os.environ['GECKO_KEY']
 }
-url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&price_change_percentage=1h"
-
 response = requests.get(url, headers=headers)
 coin_list = response.json()
 
@@ -44,7 +36,12 @@ list_smallcap = []
 for coin in top_coins_sc:
     list_smallcap.append(f'{coin["symbol"].upper()}:{round(coin["current_price"],4)}:{round(coin["price_change_percentage_1h_in_currency"],2)}:{round(coin["price_change_percentage_24h"],2)}')
 
-#return "Here are the list of top 20 coins (MID-CAP) with most 24h change: \n" + str(list_midcap)+ '\n' + "\nHere are the list of top 20 coins (SMALL-CAP) with most 24h change: \n" + str(list_smallcap)
-client.messages.create(body = formula + "\n\n" + btc + "\n\n" + "Here is the list of top 20 coins (MID-CAP) with most 1h change: \n" + str(list_midcap)+ '\n' + "\nHere is the list of top 20 coins (SMALL-CAP) with most 1h change: \n" + str(list_smallcap),
-                    from_ = from_whatsapp_number,
-                    to = to_whatsapp_number)
+message = formula + "\n\n" + btc + "\n\n" + "Here is the list of top 20 coins (MID-CAP) with most 1h change: \n" + str(list_midcap)+ '\n' + "\nHere is the list of top 20 coins (SMALL-CAP) with most 1h change: \n" + str(list_smallcap)
+
+client = WebClient(token=os.environ["SLACK_TOKEN"])
+
+client.chat_postMessage(
+    channel="crypto-updates",
+    text = message,
+    username="CryptoUpdates"
+)

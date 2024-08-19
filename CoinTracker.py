@@ -2,16 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from twilio.rest import Client
-
-#Set up twilio account via API
-account_sid = os.environ["TWILIO_ACC_SID"]
-auth_token = os.environ["TWILIO_AUTH_TOKEN"]
-print(account_sid)
-print(auth_token)
-client = Client(account_sid, auth_token)
-
-from_whatsapp_number = '+14157671736'
-to_whatsapp_number = '+61431515817'
+from slack_sdk import WebClient
 
 #scrape Greed&Fear Index
 gf_url = 'https://alternative.me/crypto/fear-and-greed-index/'
@@ -34,6 +25,12 @@ alt_index_today = alt_box.find('b').get_text()
 gf_message = "The greed and fear index today is " + gf_index_today + ", which is " + gf_status_today
 alt_message = "\n < 25 being bitcoin and > 75 being altcoin." + " Today's index is " + alt_index_today
 
-client.messages.create(body = gf_message + alt_message,
-                   from_ = from_whatsapp_number,
-                   to = to_whatsapp_number)
+message = gf_message + "\n" + alt_message
+
+client = WebClient(token=os.environ["SLACK_TOKEN"])
+
+client.chat_postMessage(
+    channel="greedandfear",
+    text = message,
+    username="Greed&Fear"
+)
