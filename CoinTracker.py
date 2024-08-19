@@ -10,8 +10,8 @@ print(account_sid)
 print(auth_token)
 client = Client(account_sid, auth_token)
 
-from_whatsapp_number = 'whatsapp:+14155238886'
-to_whatsapp_number = 'whatsapp:+61431515817'
+from_whatsapp_number = '+14157671736'
+to_whatsapp_number = '+61431515817'
 
 #scrape Greed&Fear Index
 gf_url = 'https://alternative.me/crypto/fear-and-greed-index/'
